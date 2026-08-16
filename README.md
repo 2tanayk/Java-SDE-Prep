@@ -8,6 +8,7 @@ Notes and revision material for SDE 2 Java developer interview preparation.
 - [Class Loading Basics](day-1/java-fundamentals/class-loading.md)
 - [`static`](day-1/java-fundamentals/static.md)
 - [`final`](day-1/java-fundamentals/final.md)
+- [`this` / `super`](day-1/java-fundamentals/this-super.md)
 
 ## Day 2 — Collections
 
