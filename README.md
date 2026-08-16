@@ -11,6 +11,7 @@ Notes and revision material for SDE 2 Java developer interview preparation.
 - [`this` / `super`](day-1/java-fundamentals/this-super.md)
 - [Access Modifiers](day-1/java-fundamentals/access-modifiers.md)
 - [`==` vs `equals()` vs `hashCode()`](day-1/java-fundamentals/equals-hashcode.md)
+- [Inheritance](day-1/java-fundamentals/inheritance.md)
 
 ## Day 2 — Collections
 
