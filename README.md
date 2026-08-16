@@ -6,6 +6,7 @@ Notes and revision material for SDE 2 Java developer interview preparation.
 
 - [JDK / JRE / JVM](day-1/java-fundamentals/jdk-jre-jvm.md)
 - [Class Loading Basics](day-1/java-fundamentals/class-loading.md)
+- [`static`](day-1/java-fundamentals/static.md)
 
 ## Day 2 — Collections
 
