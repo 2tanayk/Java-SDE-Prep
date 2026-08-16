@@ -4,7 +4,7 @@ Notes and revision material for SDE 2 Java developer interview preparation.
 
 ## Day 1 — Java Fundamentals + OOP
 
-- [x] [JDK / JRE / JVM](day-1/java-fundamentals/jdk-jre-jvm.md)
+- [JDK / JRE / JVM](day-1/java-fundamentals/jdk-jre-jvm.md)
 
 ## Day 2 — Collections
 
