@@ -9,6 +9,7 @@ Notes and revision material for SDE 2 Java developer interview preparation.
 - [`static`](day-1/java-fundamentals/static.md)
 - [`final`](day-1/java-fundamentals/final.md)
 - [`this` / `super`](day-1/java-fundamentals/this-super.md)
+- [Access Modifiers](day-1/java-fundamentals/access-modifiers.md)
 
 ## Day 2 — Collections
 
