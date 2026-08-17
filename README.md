@@ -20,6 +20,7 @@ Notes and revision material for SDE 2 Java developer interview preparation.
 - [String, String Pool, StringBuilder & StringBuffer](day-1/java-fundamentals/string-stringbuilder-stringbuffer.md)
 
 ## Day 2 — Collections
+- [Collection Hierarchy](day-2/collections/collection-hierarchy.md)
 
 ## Day 3 — Generics + Java 8
 
