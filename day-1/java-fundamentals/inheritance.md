@@ -425,15 +425,7 @@ But the referenced object can still be mutated:
 Config.VALUES.add("hello"); // valid
 ```
 
-This is the same `final` reference vs mutable object distinction:
-
-```text
-final reference
-      ↓
-cannot change what it points to
-      ↓
-but the referenced object may still be mutable
-```
+This is the same `final` reference vs mutable object distinction.
 
 ## Covariant Return Types
 
@@ -456,16 +448,7 @@ class Dog extends Animal {
 
 This is valid because `Dog` is a subtype of `Animal`.
 
-An unrelated return type is not allowed:
-
-```java
-class Dog extends Animal {
-    @Override
-    String create() { // compilation error
-        return "Dog";
-    }
-}
-```
+An unrelated return type is not allowed.
 
 ### Interview Rule
 
@@ -539,13 +522,94 @@ Use when you have a genuine base-class relationship and want to share:
 - Common behavior.
 - Abstract behavior that subclasses must provide.
 
+**Example — shared state + shared behavior:**
+
+```java
+abstract class Employee {
+    protected String name;
+
+    protected Employee(String name) {
+        this.name = name;
+    }
+
+    public void clockIn() {
+        System.out.println(name + " clocked in");
+    }
+
+    public abstract double calculateSalary();
+}
+
+class Developer extends Employee {
+    public Developer(String name) {
+        super(name);
+    }
+
+    @Override
+    public double calculateSalary() {
+        return 100000;
+    }
+}
+```
+
+Here, `Employee` is a genuine base type. Developers and other employees share **state (`name`)**, **constructor logic**, and **common behavior (`clockIn`)**, while subclasses provide their own salary calculation.
+
 ### Interface
 
 Use when you want to define a contract/capability that potentially unrelated classes can satisfy.
 
+**Example — shared capability, unrelated classes:**
+
+```java
+interface Payable {
+    void pay();
+}
+
+class Employee implements Payable {
+    @Override
+    public void pay() {
+        System.out.println("Paying salary");
+    }
+}
+
+class Invoice implements Payable {
+    @Override
+    public void pay() {
+        System.out.println("Paying invoice");
+    }
+}
+```
+
+`Employee` and `Invoice` are not naturally in the same class hierarchy, but both can satisfy the **`Payable` capability**.
+
 The key design question is:
 
 > **Do I need a shared base with state/implementation, or do I need a contract/capability that different classes can satisfy?**
+
+A useful mental shortcut:
+
+```text
+Abstract class
+    ↓
+"What are you?"
+    ↓
+Employee → Developer
+
+Interface
+    ↓
+"What can you do?"
+    ↓
+Employee → Payable
+Invoice  → Payable
+```
+
+A class can also combine both:
+
+```java
+class Developer extends Employee implements Payable {
+    // shared Employee state/behavior
+    // + Payable contract
+}
+```
 
 ## Interview-Level Takeaways
 
