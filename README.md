@@ -23,6 +23,7 @@ Notes and revision material for SDE 2 Java developer interview preparation.
 - [Collection Hierarchy](day-2/collections/collection-hierarchy.md)
 - [Core Collections — Usage & Core Operations](day-2/collections/core-collections-usage.md)
 - [HashMap Internals](day-2/collections/hashmap-internals.md)
+- [Iterator, For-Each & Fail-Fast](day-2/collections/iterator-foreach-fail-fast.md)
 
 ## Day 3 — Generics + Java 8
 
