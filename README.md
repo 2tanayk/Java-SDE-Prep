@@ -21,6 +21,7 @@ Notes and revision material for SDE 2 Java developer interview preparation.
 
 ## Day 2 — Collections
 - [Collection Hierarchy](day-2/collections/collection-hierarchy.md)
+- [Core Collections — Usage & Core Operations](day-2/collections/core-collections-usage.md)
 
 ## Day 3 — Generics + Java 8
 
