@@ -16,6 +16,7 @@ Notes and revision material for SDE 2 Java developer interview preparation.
 - [Encapsulation](day-1/java-fundamentals/encapsulation.md)
 - [Abstraction](day-1/java-fundamentals/abstraction.md)
 - [Immutability](day-1/java-fundamentals/immutability.md)
+- [String, String Pool, StringBuilder & StringBuffer](day-1/java-fundamentals/string-stringbuilder-stringbuffer.md)
 
 ## Day 2 — Collections
 
