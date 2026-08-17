@@ -6,29 +6,6 @@ Inheritance is one of the core principles of object-oriented programming.
 
 > **Inheritance allows a class to inherit accessible properties and behavior from another class and extend or specialize that behavior.**
 
-```java
-class Animal {
-    void eat() {
-        System.out.println("Eating");
-    }
-}
-
-class Dog extends Animal {
-    void bark() {
-        System.out.println("Barking");
-    }
-}
-```
-
-Now:
-
-```java
-Dog dog = new Dog();
-
-dog.eat();  // inherited from Animal
-dog.bark(); // defined by Dog
-```
-
 ## The IS-A Relationship
 
 Inheritance should represent a genuine **IS-A** relationship.
@@ -41,68 +18,16 @@ Developer IS-A Employee
 
 > **Do not use inheritance merely for code reuse.** If the relationship is not genuinely IS-A, composition is often a better choice.
 
-## What Does the Child Inherit?
-
-A child can use accessible inherited state and behavior from its superclass, while adding its own state and behavior.
-
-```java
-class Parent {
-    int x;
-
-    void hello() {
-    }
-}
-
-class Child extends Parent {
-    int y;
-
-    void world() {
-    }
-}
-```
-
-Conceptually:
-
-```text
-Child object
-+-----------------+
-| Parent state    |
-| x               |
-+-----------------+
-| Child state     |
-| y               |
-+-----------------+
-```
-
-Private parent members are not directly accessible from the child:
-
-```java
-class Parent {
-    private int x;
-}
-
-class Child extends Parent {
-    void test() {
-        System.out.println(x); // compilation error
-    }
-}
-```
-
 ## Single Class Inheritance
 
-Java supports **single inheritance of classes**.
+Java supports **single inheritance of classes**. A class can directly extend only one class.
 
 ```java
 class Dog extends Animal {
 }
 ```
 
-A class cannot directly extend multiple classes:
-
-```java
-class Dog extends Animal, LivingThing { // compilation error
-}
-```
+A class cannot directly extend multiple classes.
 
 However, a class can implement multiple interfaces:
 
@@ -131,15 +56,13 @@ Person
 
 Every Java class ultimately derives from `Object` (except `Object` itself).
 
-Common methods such as these originate from `Object`:
+Common methods such as `equals()`, `hashCode()`, and `toString()` originate from `Object`.
 
-```java
-equals()
-hashCode()
-toString()
-```
+## What Does the Child Inherit?
 
-This connects directly to the `equals()` / `hashCode()` topic.
+A child can use accessible inherited state and behavior from its superclass, while adding its own state and behavior.
+
+Private parent members are not directly accessible from the child.
 
 ## Method Overriding
 
@@ -160,120 +83,29 @@ class Dog extends Animal {
 }
 ```
 
-This is **method overriding**.
+### `@Override`
 
-## `@Override`
-
-`@Override` tells the compiler that the programmer intends the method to override a superclass method.
-
-```java
-@Override
-void speak() {
-    System.out.println("Bark");
-}
-```
-
-The annotation does not make overriding happen; it asks the compiler to verify that an actual override exists.
-
-For example, a typo is caught:
-
-```java
-@Override
-void speek() { // compilation error
-}
-```
-
-Without `@Override`, an accidental signature mismatch could create a new method instead of overriding the intended one.
+`@Override` tells the compiler that the programmer intends the method to override a superclass method. The annotation does not make overriding happen; it asks the compiler to verify that an actual override exists.
 
 ## Runtime Polymorphism
 
 Inheritance enables runtime polymorphism through overridden instance methods.
 
 ```java
-class Animal {
-    void speak() {
-        System.out.println("Animal");
-    }
-}
-
-class Dog extends Animal {
-    @Override
-    void speak() {
-        System.out.println("Dog");
-    }
-}
-```
-
-Then:
-
-```java
 Animal animal = new Dog();
-animal.speak();
+animal.speak(); // Dog implementation
 ```
 
-executes:
-
-```text
-Dog.speak()
-```
-
-not `Animal.speak()`.
-
-- Reference type: `Animal`.
-- Runtime object type: `Dog`.
-- Overridden instance-method dispatch uses the runtime object's implementation.
+- **Reference type:** `Animal` — controls which members are available through the reference at compile time.
+- **Runtime object type:** `Dog` — determines which overridden instance method implementation executes.
 
 This is **runtime polymorphism** / **dynamic method dispatch**.
-
-## Reference Type vs Actual Object Type
-
-Given:
-
-```java
-Animal animal = new Dog();
-```
-
-The reference type controls which members are available through the reference at compile time:
-
-```java
-animal.speak(); // valid
-animal.bark();  // compilation error if bark() exists only on Dog
-```
-
-The runtime object determines which overridden instance method implementation executes.
-
-## Parent Reference → Child Object
-
-```java
-Animal animal = new Dog();
-```
-
-This is valid because:
-
-```text
-Dog IS-A Animal
-```
-
-Downcasting is possible when valid:
-
-```java
-Dog dog = (Dog) animal;
-dog.bark();
-```
-
-Detailed casting rules are covered separately.
 
 ## `super` and Inheritance
 
 `super` lets a child explicitly invoke superclass behavior:
 
 ```java
-class Animal {
-    void speak() {
-        System.out.println("Animal");
-    }
-}
-
 class Dog extends Animal {
     @Override
     void speak() {
@@ -283,25 +115,13 @@ class Dog extends Animal {
 }
 ```
 
-Calling `dog.speak()` produces:
-
-```text
-Dog
-Animal
-```
-
 `super.speak()` explicitly invokes the superclass implementation.
 
 ## Constructors Are Not Inherited
 
-Constructors are **not inherited**.
+Constructors are **not inherited**. A child constructor must explicitly or implicitly invoke an appropriate parent constructor.
 
 ```java
-class Parent {
-    Parent(int x) {
-    }
-}
-
 class Child extends Parent {
     Child() {
         super(10);
@@ -309,41 +129,15 @@ class Child extends Parent {
 }
 ```
 
-The child constructor must explicitly or implicitly invoke an appropriate parent constructor.
-
-```text
-Child constructor
-      |
-      v
-super(...)
-      |
-      v
-Parent constructor
-```
-
 The parent constructor initializes the superclass portion of the object; it is not inherited by the child.
 
 ## Private Methods and Overriding
 
-Private methods cannot be overridden because they are not accessible to subclasses.
-
-```java
-class Parent {
-    private void hello() {
-    }
-}
-
-class Child extends Parent {
-    private void hello() {
-    }
-}
-```
-
-The `hello()` in `Child` is a **new method**, not an override of `Parent.hello()`.
+Private methods cannot be overridden because they are not accessible to subclasses. A same-named method in the child is a new method, not an override.
 
 ## Static Methods: Hiding, Not Overriding
 
-Static methods belong to the class, so they are not overridden through runtime polymorphism.
+Static methods belong to the class, so they are not overridden through runtime polymorphism. They are **hidden**.
 
 ```java
 class Parent {
@@ -362,44 +156,10 @@ Parent p = new Child();
 p.hello(); // Parent
 ```
 
-Static methods are **hidden**, rather than overridden.
-
-```text
-Instance method
-    ↓
-overriding
-    ↓
-runtime dispatch
-
-Static method
-    ↓
-method hiding
-    ↓
-reference/class type
-```
-
 ## `final` and Inheritance
 
-A `final` class cannot be extended:
-
-```java
-final class Animal {
-}
-
-class Dog extends Animal { // compilation error
-}
-```
-
-A `final` method cannot be overridden:
-
-```java
-class Animal {
-    final void breathe() {
-    }
-}
-```
-
-Therefore:
+- A `final` class cannot be extended.
+- A `final` method cannot be overridden.
 
 ```text
 final class  → cannot be extended
@@ -418,11 +178,7 @@ abstract class Animal {
         System.out.println("Eating");
     }
 }
-```
 
-A concrete subclass provides the abstract behavior while inheriting concrete behavior:
-
-```java
 class Dog extends Animal {
     @Override
     void speak() {
@@ -430,6 +186,8 @@ class Dog extends Animal {
     }
 }
 ```
+
+A concrete subclass provides the abstract behavior while inheriting concrete behavior.
 
 ## Interface Inheritance
 
@@ -445,18 +203,6 @@ interface Mammal extends Animal {
 }
 ```
 
-A class implementing `Mammal` must satisfy both contracts:
-
-```java
-class Dog implements Mammal {
-    public void eat() {
-    }
-
-    public void giveBirth() {
-    }
-}
-```
-
 Relevant relationships:
 
 ```text
@@ -465,13 +211,233 @@ class      --implements-> interface
 interface  --extends-->    interface
 ```
 
+## The Diamond Problem
+
+The **Diamond Problem** describes ambiguity that can occur with multiple inheritance when a class inherits the same behavior or state through multiple parent classes.
+
+Imagine Java allowed:
+
+```text
+       A
+      / \
+     B   C
+      \ /
+       D
+```
+
+If both `B` and `C` override `hello()`, then `D.hello()` would have an ambiguous choice:
+
+```text
+B.hello() ?
+C.hello() ?
+```
+
+Java avoids this by **not allowing multiple inheritance of classes**.
+
+### Why Multiple Interfaces Are Allowed
+
+Interfaces were traditionally contracts rather than inherited class state/implementation, so a class can implement multiple interfaces:
+
+```java
+interface Flyable {
+    void fly();
+}
+
+interface Swimmable {
+    void swim();
+}
+
+class Duck implements Flyable, Swimmable {
+    public void fly() {}
+    public void swim() {}
+}
+```
+
+### Default Methods Make Interface Conflicts Possible
+
+Modern interfaces can have `default` methods, so multiple interfaces can provide competing implementations:
+
+```java
+interface A {
+    default void hello() {
+        System.out.println("A");
+    }
+}
+
+interface B {
+    default void hello() {
+        System.out.println("B");
+    }
+}
+
+class C implements A, B {
+    // compilation error unless conflict is resolved
+}
+```
+
+The implementing class must resolve the conflict:
+
+```java
+class C implements A, B {
+    @Override
+    public void hello() {
+        System.out.println("C");
+    }
+}
+```
+
+Or explicitly choose one interface's default implementation:
+
+```java
+class C implements A, B {
+    @Override
+    public void hello() {
+        A.super.hello();
+    }
+}
+```
+
+### Class Method vs Interface Default Method
+
+If a class inherits an actual method from a superclass and also gets a conflicting `default` method from an interface, the **class method wins**.
+
+```java
+class A {
+    void hello() {
+        System.out.println("A");
+    }
+}
+
+interface B {
+    default void hello() {
+        System.out.println("B");
+    }
+}
+
+class C extends A implements B {
+}
+
+C c = new C();
+c.hello(); // A
+```
+
+### Mental Model
+
+```text
+Multiple classes
+      ↓
+Diamond problem
+      ↓
+Ambiguous inherited state/behavior
+      ↓
+Java disallows multiple class inheritance
+```
+
+For interfaces:
+
+```text
+Multiple interfaces
+      ↓
+Contracts/capabilities
+      ↓
+Multiple interfaces allowed
+      ↓
+Default-method conflict?
+      ↓
+Implementing class must resolve it
+```
+
+## Interface Fields and State
+
+An interface **can declare fields**, but they are not per-object instance state.
+
+Every interface field is implicitly:
+
+```java
+public static final
+```
+
+For example:
+
+```java
+interface Config {
+    int MAX_RETRIES = 3;
+}
+```
+
+is effectively:
+
+```java
+interface Config {
+    public static final int MAX_RETRIES = 3;
+}
+```
+
+Therefore `Config.MAX_RETRIES` is a constant belonging to the interface, not a separate instance field inside every implementing object.
+
+### Interface Field Name Conflicts
+
+Two interfaces can declare fields with the same name:
+
+```java
+interface A {
+    int VALUE = 10;
+}
+
+interface B {
+    int VALUE = 20;
+}
+
+class C implements A, B {
+}
+```
+
+An unqualified reference through `C` is ambiguous:
+
+```java
+System.out.println(C.VALUE); // compilation error
+```
+
+Resolve it by qualifying the interface:
+
+```java
+System.out.println(A.VALUE); // 10
+System.out.println(B.VALUE); // 20
+```
+
+Fields are static constants, so this is a **name ambiguity**, not runtime method dispatch.
+
+### Interface Constants Can Refer to Mutable Objects
+
+The field reference itself is still `public static final`, so it cannot be replaced:
+
+```java
+interface Config {
+    List<String> VALUES = new ArrayList<>();
+}
+
+Config.VALUES = new ArrayList<>(); // compilation error
+```
+
+But the referenced object can still be mutated:
+
+```java
+Config.VALUES.add("hello"); // valid
+```
+
+This is the same `final` reference vs mutable object distinction:
+
+```text
+final reference
+      ↓
+cannot change what it points to
+      ↓
+but the referenced object may still be mutable
+```
+
 ## Covariant Return Types
 
 When overriding a method, Java allows the overriding method to return the **same type or a more specific subtype** of the parent's return type.
-
-This is called a **covariant return type**.
-
-Example:
 
 ```java
 class Animal {
@@ -488,13 +454,7 @@ class Dog extends Animal {
 }
 ```
 
-The parent returns `Animal`, while the child returns `Dog`.
-
-This is valid because:
-
-```text
-Dog IS-A Animal
-```
+This is valid because `Dog` is a subtype of `Animal`.
 
 An unrelated return type is not allowed:
 
@@ -507,17 +467,6 @@ class Dog extends Animal {
 }
 ```
 
-`String` is not a subtype of `Animal`.
-
-### Why Is This Useful?
-
-Covariant returns allow an overriding method to provide a more specific result without forcing callers using the child type to cast it.
-
-```java
-Dog dog = new Dog();
-Dog created = dog.create();
-```
-
 ### Interview Rule
 
 > **An overriding method may return the same type as the parent method or a subtype (more specific type) of the parent's return type.**
@@ -526,17 +475,9 @@ Dog created = dog.create();
 
 Do not use inheritance merely because two classes share code.
 
-This is conceptually wrong:
-
 ```java
-class Car extends Engine {
+class Car extends Engine { // conceptually wrong
 }
-```
-
-because:
-
-```text
-Car IS NOT-A Engine
 ```
 
 A car **has an engine**, so composition is more appropriate:
@@ -557,8 +498,6 @@ Composition:
 Car HAS-A Engine
 ```
 
-Composition is often preferable when the relationship is not genuinely IS-A.
-
 ## Inheritance as an OOP Principle
 
 The commonly discussed four OOP principles are:
@@ -571,40 +510,10 @@ The commonly discussed four OOP principles are:
  Encapsulation Inheritance Polymorphism Abstraction
 ```
 
-### Encapsulation
-
-Hide internal state and implementation details using mechanisms such as access modifiers.
-
-### Inheritance
-
-Extend an existing class through an IS-A relationship:
-
-```java
-class Dog extends Animal
-```
-
-### Polymorphism
-
-Allow the same reference/contract to represent different concrete implementations:
-
-```java
-Animal animal = new Dog();
-animal.speak(); // Dog implementation
-```
-
-### Abstraction
-
-Expose essential behavior while hiding implementation details using mechanisms such as:
-
-```java
-abstract class Animal
-```
-
-or:
-
-```java
-interface Payment
-```
+- **Encapsulation:** hide internal state/implementation details using access control.
+- **Inheritance:** extend an existing class through an IS-A relationship.
+- **Polymorphism:** allow the same reference/contract to represent different concrete implementations.
+- **Abstraction:** expose essential behavior while hiding implementation details through mechanisms such as abstract classes and interfaces.
 
 A useful relationship is:
 
@@ -630,29 +539,9 @@ Use when you have a genuine base-class relationship and want to share:
 - Common behavior.
 - Abstract behavior that subclasses must provide.
 
-Example:
-
-```text
-Employee
-   |
-   +-- Developer
-   +-- Manager
-   +-- Tester
-```
-
 ### Interface
 
 Use when you want to define a contract/capability that potentially unrelated classes can satisfy.
-
-Example:
-
-```text
-Payable
-   |
-   +-- UpiPayment
-   +-- CreditCardPayment
-   +-- Invoice
-```
 
 The key design question is:
 
@@ -678,6 +567,12 @@ The key design question is:
 - A `final` method cannot be overridden.
 - Abstract classes are useful as shared base classes.
 - Interfaces can also form inheritance hierarchies.
+- The **Diamond Problem** explains why Java does not allow multiple inheritance of classes; multiple inherited implementations/state could create ambiguity.
+- Multiple interfaces are allowed, but conflicting `default` methods must be explicitly resolved by the implementing class.
+- An inherited class method takes precedence over a conflicting interface `default` method.
+- Interface fields exist, but are implicitly `public static final`; they are constants, not per-object instance state.
+- If multiple interfaces declare fields with the same name, access is ambiguous and must be qualified (`A.VALUE` vs `B.VALUE`).
+- An interface constant can refer to a mutable object; `final` prevents replacing the reference, not mutating the referenced object.
 - **Covariant return types** allow an overriding method to return the same type or a more specific subtype of the parent's return type.
 - Inheritance is not simply a code-reuse mechanism; use composition for **HAS-A** relationships.
 - Inheritance is one of the four commonly discussed OOP principles, alongside encapsulation, polymorphism, and abstraction.
