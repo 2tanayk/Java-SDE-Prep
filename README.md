@@ -29,6 +29,7 @@ Notes and revision material for SDE 2 Java developer interview preparation.
 - [Generic Classes & Methods](day-3/generics/generic-classes-methods.md)
 - [Generic Bounds](day-3/generics/generic-bounds.md)
 - [Wildcards, `? extends`, `? super` & PECS](day-3/generics/wildcards-extends-super-pecs.md)
+- [Functional Interfaces, Lambdas & Method References](day-3/java-8/functional-interfaces-lambdas-method-references.md)
 
 ## Day 4 — Streams + Optional
 
