@@ -26,6 +26,7 @@ Notes and revision material for SDE 2 Java developer interview preparation.
 - [Iterator, For-Each & Fail-Fast](day-2/collections/iterator-foreach-fail-fast.md)
 
 ## Day 3 — Generics + Java 8
+- [Generic Classes & Methods](day-3/generics/generic-classes-methods.md)
 
 ## Day 4 — Streams + Optional
 
