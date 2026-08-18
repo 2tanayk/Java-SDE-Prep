@@ -27,6 +27,7 @@ Notes and revision material for SDE 2 Java developer interview preparation.
 
 ## Day 3 — Generics + Java 8
 - [Generic Classes & Methods](day-3/generics/generic-classes-methods.md)
+- [Generic Bounds](day-3/generics/generic-bounds.md)
 
 ## Day 4 — Streams + Optional
 
