@@ -32,6 +32,7 @@ Notes and revision material for SDE 2 Java developer interview preparation.
 - [Type erasure](day-3/generics/java_type_erasure.md)
 - [Functional Interfaces, Lambdas & Method References](day-3/java-8/functional-interfaces-lambdas-method-references.md)
 - [Effectively-final lambda capture](day-3/java-8/java_lambda_capture.md)
+- [Streams & Optional](day-3/java-8/streams-optional.md)
 
 ## Day 4 — Streams + Optional
 
