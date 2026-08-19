@@ -18,6 +18,7 @@ Notes and revision material for SDE 2 Java developer interview preparation.
 - [Immutability](day-1/java-fundamentals/immutability.md)
 - [Class initialization order](day-1/java-fundamentals/class-initialization-order.md)
 - [String, String Pool, StringBuilder & StringBuffer](day-1/java-fundamentals/string-stringbuilder-stringbuffer.md)
+- [Nested & Inner Classes](day-1/java-fundamentals/nested-and-inner-classes.md)
 
 ## Day 2 — Collections
 - [Collection Hierarchy](day-2/collections/collection-hierarchy.md)
