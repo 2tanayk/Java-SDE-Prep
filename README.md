@@ -39,6 +39,7 @@ Notes and revision material for SDE 2 Java developer interview preparation.
 ## Day 4 — Streams + Optional
 
 ## Day 5 — Concurrency
+- [Thread Basics & Lifecycle](day-5/concurrency/thread-basics-and-lifecycle.md)
 
 ## Day 6 — JVM Memory + Exceptions
 - [OutOfMemoryError & StackOverflowError](day-6/jvm-memory-errors/out-of-memory-and-stack-overflow.md)
