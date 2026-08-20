@@ -42,6 +42,7 @@ Notes and revision material for SDE 2 Java developer interview preparation.
 
 ## Day 6 — JVM Memory + Exceptions
 - [OutOfMemoryError & StackOverflowError](day-6/jvm-memory-errors/out-of-memory-and-stack-overflow.md)
+- [Stack vs Heap, Object Lifecycle, Reachability, GC & Memory Leaks](day-6/jvm-memory-errors/stack-heap-object-lifecycle-gc-memory-leaks.md)
 
 ## Day 7 — Modern Java + Design Patterns
 
