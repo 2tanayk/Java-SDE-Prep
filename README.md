@@ -41,6 +41,7 @@ Notes and revision material for SDE 2 Java developer interview preparation.
 ## Day 5 — Concurrency
 
 ## Day 6 — JVM Memory + Exceptions
+- [OutOfMemoryError & StackOverflowError](day-6/jvm-memory-errors/out-of-memory-and-stack-overflow.md)
 
 ## Day 7 — Modern Java + Design Patterns
 
