@@ -42,6 +42,7 @@ Notes and revision material for SDE 2 Java developer interview preparation.
 - [Thread Basics & Lifecycle](day-5/concurrency/thread-basics-and-lifecycle.md)
 - [Race Conditions, Shared Mutable State & Thread Safety](day-5/concurrency/race-conditions-shared-state-thread-safety.md)
 - [`synchronized`](day-5/concurrency/synchronized.md)
+- [`volatile`](day-5/concurrency/volatile.md)
 
 ## Day 6 — JVM Memory + Exceptions
 - [OutOfMemoryError & StackOverflowError](day-6/jvm-memory-errors/out-of-memory-and-stack-overflow.md)
