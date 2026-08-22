@@ -37,6 +37,7 @@ Notes and revision material for SDE 2 Java developer interview preparation.
 
 ## Day 4 — Streams + Optional
 - [Streams & Optional](day-3/java-8/streams-optional.md)
+
 ## Day 5 — Concurrency
 - [Thread Basics & Lifecycle](day-5/concurrency/thread-basics-and-lifecycle.md)
 - [Race Conditions, Shared Mutable State & Thread Safety](day-5/concurrency/race-conditions-shared-state-thread-safety.md)
@@ -46,6 +47,7 @@ Notes and revision material for SDE 2 Java developer interview preparation.
 - [Atomic Classes](day-5/concurrency/atomic-classes.md)
 - [Concurrent Collections](day-5/concurrency/concurrent-collections.md)
 - [Deadlocks](day-5/concurrency/deadlocks.md)
+- [`CompletableFuture`](day-5/concurrency/completable-future.md)
 
 ## Day 6 — JVM Memory + Exceptions
 - [OutOfMemoryError & StackOverflowError](day-6/jvm-memory-errors/out-of-memory-and-stack-overflow.md)
