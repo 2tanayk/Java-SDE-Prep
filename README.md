@@ -45,6 +45,7 @@ Notes and revision material for SDE 2 Java developer interview preparation.
 - [`ExecutorService` & Thread Pools](day-5/concurrency/executor-service-thread-pools.md)
 - [Atomic Classes](day-5/concurrency/atomic-classes.md)
 - [Concurrent Collections](day-5/concurrency/concurrent-collections.md)
+- [Deadlocks](day-5/concurrency/deadlocks.md)
 
 ## Day 6 — JVM Memory + Exceptions
 - [OutOfMemoryError & StackOverflowError](day-6/jvm-memory-errors/out-of-memory-and-stack-overflow.md)
