@@ -62,6 +62,7 @@ Notes and revision material for SDE 2 Java developer interview preparation.
 - [NIO.2 — `Path` & `Files`](day-8/file-io/nio-path-files.md)
 - [Directory Traversal](day-8/file-io/directory-traversal.md)
 - [Exception Handling & Resource Management](day-8/file-io/exception-handling-resource-management.md)
+- [File Encoding](day-8/file-io/file-encoding.md)
 
 ## Recommended Priority Order
 
