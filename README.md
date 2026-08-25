@@ -63,6 +63,7 @@ Notes and revision material for SDE 2 Java developer interview preparation.
 - [Directory Traversal](day-8/file-io/directory-traversal.md)
 - [Exception Handling & Resource Management](day-8/file-io/exception-handling-resource-management.md)
 - [File Encoding](day-8/file-io/file-encoding.md)
+- [Large File Handling](day-8/file-io/large-file-handling.md)
 
 ## Recommended Priority Order
 
