@@ -59,6 +59,8 @@ Notes and revision material for SDE 2 Java developer interview preparation.
 - [`java.io.File` API Basics](day-8/file-io/file-api-basics.md)
 - [Byte vs Character Streams](day-8/file-io/byte-vs-character-streams.md)
 - [Buffered I/O](day-8/file-io/buffered-io.md)
+- [NIO.2 — `Path` & `Files`](day-8/file-io/nio-path-files.md)
+- [Directory Traversal](day-8/file-io/directory-traversal.md)
 
 ## Recommended Priority Order
 
